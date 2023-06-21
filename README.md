@@ -33,3 +33,5 @@
         [k6](https://dl.k6.io/msi/)
 - curl localhost:8000
 - k6 run test_hello.js
+- npm install express
+    - npm ls
