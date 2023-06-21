@@ -1,4 +1,4 @@
-
+#### lib 사용법
         npm init
         npm install figlet
         - req : Request
@@ -27,3 +27,9 @@
 - 콜백 함수 : 함수(끝나고 실행할 함수)
     - 다른 코드의 인루로서 넘겨주는 실행가능한 코드
     - setTimeout(()=>{console.log("hello"),1000});
+
+#### Node.js 벡엔드 개발
+        [curl](https://curl.se/windows/)
+        [k6](https://dl.k6.io/msi/)
+- curl localhost:8000
+- k6 run test_hello.js
