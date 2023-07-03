@@ -1,61 +1,41 @@
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-const app = express();
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 
+var app = express();
 
-const db = new Map();
-const USER_COOKIE_KEY = 'USER';
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(3000, () => {
-    console.log('server is running at 3000');
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
 });
 
-app.post('/signup', (req, res) => {
-    const { username, name, password } = req.body;
-    const exists = db.get(username);
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    if (exists) {
-        res.status(400).send(`duplicate username: ${username}`);
-        return;
-    }
-    const newUser = {
-        username,
-        name,
-        password,
-    };
-    db.set(username, newUser);
-    res.cookie(USER_COOKIE_KEY, JSON.stringify(newUser));
-    res.redirect('/');
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
 
-app.get('/', (req, res) => {
-    const user = req.cookies[USER_COOKIE_KEY];
-    
-    if (user) {
-        const userData = JSON.parse(user);
-        if (db.get(userData.username)) {
-            res.status(200).send(`
-                <a href="/logout">Log Out</a>
-                <h1>id: ${userData.username}, name: ${userData.name}, password: ${userData.password}</h1>
-            `);
-            return;
-        }
-    }
-    res.status(200).send(`
-        <a href="/login.html">Log In</a>
-        <a href="/signup.html">Sign Up</a>
-        <h1>Not Logged In</h1>
-    `);
-});
-
-app.get('/logout', (req, res) => {
-    res.clearCookie(USER_COOKIE_KEY);
-    res.redirect('/');
-});
-
+module.exports = app;
