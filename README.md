@@ -35,3 +35,5 @@
 - k6 run test_hello.js
 - npm install express
     - npm ls
+
+https://contents.premium.naver.com/codetree/funcoding/contents/220608194847140ab
