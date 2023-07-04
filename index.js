@@ -6,8 +6,9 @@ const cors = require('cors');
 
 const con = mysql.createConnection({
     host:'localhost',
-    user:'root',
+    user:'enrhd',
     password:'1q2w3e',
+    port:3306,
     database:'account',
 });
 
@@ -18,30 +19,26 @@ let corsOptions = {
   
   app.use(cors(corsOptions));
 
-con.connect();
+  app.get("/", (req, res) => {
+      const q = `insert into user ('id','username', 'password') values (0,'enrhd', '1q2w3e');`
+      const values = ["id","username", "password"]
+    
+      con.query(q, [values], (err, data) => {
+        console.log(err);
+        res.send('success!');
+      })
+    })
 
-con.query('INSERT INTO user(nickname,password) VALUES("Enrhd", "1q2w3e");'
-        , ['id','nickname', 'password']
-        , function (error, results, fields) {
-    if (error)
-        throw error;
-    let member_no = results.insertId;
-    console.log('The new member_no: ', member_no);
-
-    connection.end();
-});
-   
-
-app.get("/",(req,res)=>{
-        res.send("success!");
+app.get("/user",(req,res)=>{
+        const query = "select * from user"
+        con.query(query,(err,data)=>{
+            if(err) return res.json(err)
+            return res.json(data)
+        })
     });
 
-app.get("/list", (req, res) => {
-    const sqlQuery = "SELECT *FROM user;";
-    con.query(sqlQuery, (err, result) => {
-      res.send(result);
-    });
-  });
+
+app.use(express.json())
 
 app.listen(PORT, ()=>{
     console.log(`running on port ${PORT}`);
