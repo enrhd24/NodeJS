@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := nucleo-f103rb
+BUILD_ARTIFACT_NAME := test
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-nucleo-f103rb.elf \
+test.elf \
 
 MAP_FILES += \
-nucleo-f103rb.map \
+test.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-nucleo-f103rb.list \
+test.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: nucleo-f103rb.elf secondary-outputs
+main-build: test.elf secondary-outputs
 
 # Tool invocations
-nucleo-f103rb.elf nucleo-f103rb.map: $(OBJS) $(USER_OBJS) C:\Users\enrhd\STM32CubeIDE\workspace_1.12.1\nucleo-f103rb\STM32F103RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "nucleo-f103rb.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\enrhd\STM32CubeIDE\workspace_1.12.1\nucleo-f103rb\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo-f103rb.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+test.elf test.map: $(OBJS) $(USER_OBJS) C:\Users\enrhd\STM32CubeIDE\workspace\test\STM32F103RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\enrhd\STM32CubeIDE\workspace\test\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-nucleo-f103rb.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "nucleo-f103rb.list"
+test.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "test.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout nucleo-f103rb.elf nucleo-f103rb.list nucleo-f103rb.map
+	-$(RM) default.size.stdout test.elf test.list test.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
