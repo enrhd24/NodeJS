@@ -79,7 +79,9 @@ int main(void)
 
   while (1)
   {
-	  printf("Hello %s\r\n", "world");
+	   uint8_t Test[] = "Hello World !!!\r\n"; //Data to send
+	  HAL_UART_Transmit(&huart2,Test,sizeof(Test),10);// Sending in normal mode
+	  HAL_Delay(1000);
   }
 }
 
