@@ -1,0 +1,4 @@
+../src/hw/diver/led.c:23:6:ledInit	40	static
+../src/hw/diver/led.c:44:6:ledOn	16	static
+../src/hw/diver/led.c:49:6:ledOff	16	static
+../src/hw/diver/led.c:55:6:ledToggle	16	static

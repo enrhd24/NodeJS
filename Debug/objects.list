@@ -7,6 +7,7 @@
 "./src/bsp/sysmem.o"
 "./src/bsp/system_stm32f1xx.o"
 "./src/bsp/startup/startup_stm32f103rbhx.o"
+"./src/hw/diver/led.o"
 "./src/hw/hw.o"
 "./src/lib/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
 "./src/lib/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"

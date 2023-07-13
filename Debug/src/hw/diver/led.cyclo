@@ -1,0 +1,4 @@
+../src/hw/diver/led.c:23:6:ledInit	2
+../src/hw/diver/led.c:44:6:ledOn	2
+../src/hw/diver/led.c:49:6:ledOff	2
+../src/hw/diver/led.c:55:6:ledToggle	2

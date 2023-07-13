@@ -1,2 +1,2 @@
 ../src/bp/bp.c:11:6:bpInit	4	static
-../src/bp/bp.c:15:6:bpMain	4	static
+../src/bp/bp.c:15:6:bpMain	8	static

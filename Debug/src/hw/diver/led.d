@@ -1,5 +1,5 @@
-src/bp/bp.o: ../src/bp/bp.c ../src/bp/bp.h \
- C:/Users/enrhd/STM32CubeIDE/ws/src/hw/hw.h \
+src/hw/diver/led.o: ../src/hw/diver/led.c \
+ C:/Users/enrhd/STM32CubeIDE/ws/src/common/hw/include/led.h \
  C:/Users/enrhd/STM32CubeIDE/ws/src/hw/hw_def.h \
  C:/Users/enrhd/STM32CubeIDE/ws/src/common/def.h \
  C:/Users/enrhd/STM32CubeIDE/ws/src/bsp/bsp.h \
@@ -24,11 +24,8 @@ src/bp/bp.o: ../src/bp/bp.c ../src/bp/bp.h \
  C:/Users/enrhd/STM32CubeIDE/ws/src/lib/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h \
  C:/Users/enrhd/STM32CubeIDE/ws/src/lib/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h \
  C:/Users/enrhd/STM32CubeIDE/ws/src/lib/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h \
- C:/Users/enrhd/STM32CubeIDE/ws/src/lib/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
- C:/Users/enrhd/STM32CubeIDE/ws/src/common/hw/include/led.h \
- C:/Users/enrhd/STM32CubeIDE/ws/src/hw/hw_def.h
-../src/bp/bp.h:
-C:/Users/enrhd/STM32CubeIDE/ws/src/hw/hw.h:
+ C:/Users/enrhd/STM32CubeIDE/ws/src/lib/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+C:/Users/enrhd/STM32CubeIDE/ws/src/common/hw/include/led.h:
 C:/Users/enrhd/STM32CubeIDE/ws/src/hw/hw_def.h:
 C:/Users/enrhd/STM32CubeIDE/ws/src/common/def.h:
 C:/Users/enrhd/STM32CubeIDE/ws/src/bsp/bsp.h:
@@ -54,5 +51,3 @@ C:/Users/enrhd/STM32CubeIDE/ws/src/lib/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1x
 C:/Users/enrhd/STM32CubeIDE/ws/src/lib/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h:
 C:/Users/enrhd/STM32CubeIDE/ws/src/lib/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h:
 C:/Users/enrhd/STM32CubeIDE/ws/src/lib/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
-C:/Users/enrhd/STM32CubeIDE/ws/src/common/hw/include/led.h:
-C:/Users/enrhd/STM32CubeIDE/ws/src/hw/hw_def.h:

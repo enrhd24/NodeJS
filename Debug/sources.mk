@@ -26,6 +26,7 @@ SUBDIRS := \
 src/bp \
 src/bsp \
 src/bsp/startup \
+src/hw/diver \
 src/hw \
 src/lib/Drivers/STM32F1xx_HAL_Driver/Src \
 
